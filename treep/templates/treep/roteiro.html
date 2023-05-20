@@ -1,0 +1,112 @@
+{% load static %}
+<!--
+Deux 
+<form action="." method="get">
+    <label for="dias">Dias de roteiro</label>
+    <input type="number" name="dias" id="dias" max=5 min=0 value=0>
+    <input type="submit" value="Ir">
+    {% csrf_token %}
+
+</form>
+-->
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+
+
+
+
+
+<a href="{% url 'treep:index' %}">Principal</a>
+
+
+
+
+
+{% for roteiro in object_list %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="content">
+  <span>DIA {{roteiro}}</span>
+    <br>
+    
+<div class="card">
+<div class="d1">
+
+<span>Café da manhã - {{roteiro.cafe}}</span>
+<br>
+<span>as 7h:50</span>
+
+</div>
+<div class="d2">
+
+    <img src="{{roteiro.cafe.img.url}}" alt="" width="50px" height="50px">
+    <a href="{{roteiro.cafe.url}}" target="_blank" >local</a>
+
+</div>
+</div>
+
+<div class="card">
+<div class="d1">
+<span>Passeio - {{roteiro.passeio}}</span>
+<br>
+<span>as 10h:50</span>
+</div>
+<div class="d2">
+<img src="{{roteiro.passeio.img.url}}" alt="" width="50px" height="50px">
+<a href="{{roteiro.passeio.url}}" target="_blank" >local</a>
+</div>
+
+</div>
+
+<div class="card">
+<div class="d1">
+<span>Praia - {{roteiro.praia}}</span>
+<br>
+<span>as 14h:00</span>
+</div>
+<div class="d2">
+<img src="{{roteiro.praia.img.url}}" alt="" width="50px" height="50px">
+<a href="{{roteiro.praia.url}}" target="_blank" >local</a>
+</div>
+</div>
+
+<div class="card">
+<div class="d1">
+<span>Jantar - {{roteiro.jantar}}</span>
+<br>
+<span>as 18h:00</span>
+</div>
+<div class="d2">
+<img src="{{roteiro.jantar.img.url}}" alt="" width="50px" height="50px">
+<a href="{{roteiro.jantar.url}}" target="_blank" >local</a>
+</div>
+</div>
+
+<div class="card">
+<div class="d1">
+<span>Bar - {{roteiro.bar}}</span>
+<br>
+<span>as 20h:00</span>
+</div>
+<div class="d2">
+<img src="{{roteiro.bar.img.url}}" alt="" width="50px" height="50px">
+<a href="{{roteiro.bar.url}}" target="_blank" >local</a>
+</div>
+</div>
+
+</div>
+
+{% endfor %}
+

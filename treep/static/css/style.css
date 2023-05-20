@@ -1,0 +1,56 @@
+
+input[type="radio"]{
+    visibility: hidden;
+}
+
+.lb {
+    display: block;
+    border: 4px solid #666;
+    width: 60px;
+    float: left;
+}
+
+input[type="radio"]:checked+.lb {
+    border-color: #0606e7;
+}
+img {
+  height: 40px;
+}
+
+#content{
+    border-color: #000000;
+    border-style: ridge;
+    border-radius: 10px;
+    background-color: rgb(223, 246, 247);
+    width: 520px;
+    height: 584px;
+}
+.card{
+    background-color: white;
+    padding: 0px;
+    margin-left: 10px;
+    width: 502px;
+    height: 100px;
+    display: flex;
+    
+
+}
+.imagem{
+    margin-left: 10px;
+}
+
+.d1{
+    background-color:rgb(255, 255, 255);
+    width: 347px;
+    height: 100px;
+    margin-right: 77px;
+    
+}
+
+.d2{
+    float: right;
+    width: 70px;
+    height: 70px;
+    display: block;
+    background-color: #ffffff;
+}

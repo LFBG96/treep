@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    
+<form action="{% url 'treep:roteiro' %}" method="get">
+    <label for="dias">Dias de roteiro</label>
+    <input type="number" name="dias" id="dias" max=5 min=0 value=1>
+    <input type="submit" value="Ir">
+    
+    <!--
+    <input type="radio" name="banana" id="banana" src="/media/imagem_passeio/buggy.png" width="50px" alt="">
+    <label for="banana">Banana</label>
+    <input type="radio" name="ovo" id="ovo" src="/media/imagem_cafe/coffee.png" width="50px" alt="">
+-->
+<br>
+<br>
+
+<br>
+    <input type="radio" name="choice" id="banana" value="3">
+    <label class="lb" for="banana" ><img src="/media/imagem_passeio/bica.png" alt="" ></label>
+    <input type="radio" name="choice" id="ovo" value="1" checked >
+    <label class="lb" for="ovo"><img src="/media/imagem_praia/caboBranco.png" alt="" ></label>
+    <input type="radio" name="choice" id="bessa" value="2" >
+    <label class="lb" for="bessa"><img src="/media/imagem_praia/bessa.png" alt="" ></label>
+    
+    
+
+
+    {% csrf_token %}
+
+</form>
+<!--
+<input type="radio" id="html" name="fav_language" value="HTML">
+<label for="html">HTML</label><br>
+<input type="radio" id="css" name="fav_language" value="CSS">
+<label for="css">CSS</label><br>
+<input type="radio" id="javascript" name="fav_language" value="JavaScript">
+<label for="javascript" src="/media/imagem_passeio/buggy.png">JavaScript</label>
+-->
+</body>
+</html>
