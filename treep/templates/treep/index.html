@@ -6,45 +6,92 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <title>Index</title>
 </head>
 <body>
     
-<form action="{% url 'treep:roteiro' %}" method="get">
-    <label for="dias">Dias de roteiro</label>
-    <input type="number" name="dias" id="dias" max=5 min=0 value=1>
-    <input type="submit" value="Ir">
+   <header>
+    {% if user.is_authenticated %}
+    <h2>Usuario: {{ user.get_username }}</h2>
+    {% endif %}
+    <a href="{% url 'treep:login' %}">Login/Cadastro</a>
     
-    <!--
-    <input type="radio" name="banana" id="banana" src="/media/imagem_passeio/buggy.png" width="50px" alt="">
-    <label for="banana">Banana</label>
-    <input type="radio" name="ovo" id="ovo" src="/media/imagem_cafe/coffee.png" width="50px" alt="">
--->
-<br>
-<br>
+    {% if user.is_authenticated %}
+    <a href="{% url 'treep:logout' %}">Logout</a>
+    {% endif %}
+   
 
-<br>
-    <input type="radio" name="choice" id="banana" value="3">
-    <label class="lb" for="banana" ><img src="/media/imagem_passeio/bica.png" alt="" ></label>
-    <input type="radio" name="choice" id="ovo" value="1" checked >
-    <label class="lb" for="ovo"><img src="/media/imagem_praia/caboBranco.png" alt="" ></label>
-    <input type="radio" name="choice" id="bessa" value="2" >
-    <label class="lb" for="bessa"><img src="/media/imagem_praia/bessa.png" alt="" ></label>
+    {% if user.is_authenticated %}
+    <a href="{% url 'treep:roteiro' %}">Seus de Roteiro</a>
+    {% endif %}
+
+
+   </header>
+   
+
+
+
+<main>
+    <form action="{% url 'treep:criar' %}" method="GET">
+        {% csrf_token %}
+        <h3>Escolha as categorias que você deseja para montar seu Roteiro</h3>
+        <hr>
+            <span>Natureza</span>
+            <input type="checkbox" name="categoria" id="natureza" value="natureza">
+            <label for="natureza"><img src="/media/imgINDEX/bica.jpg" alt=""></label>
+            <span>Praia</span>
+            <input type="checkbox" name="categoria" id="praia" value="praia">
+            <label for="praia"><img src="/media/imgINDEX/tambau.png" alt=""></label>
+            <span>Gastronomia</span>
+            <input type="checkbox" name="categoria" id="gastronomia" value="gastronomia">
+            <label for="gastronomia"><img src="/media//imgINDEX/cuscuz.jpg" alt=""></label>
+            <span>Cultura</span>
+            <input type="checkbox" name="categoria" id="cultura" value="cultura">
+            <label for="cultura"><img src="/media/imgINDEX/Centro Cultural São Francisco.jpg" alt=""></label>
     
+            <br>
     
+            <button type="submit" onclick="checar()">Criar Roteiro</button>
+    
+    </form>
+</main>
 
 
-    {% csrf_token %}
-
-</form>
 <!--
-<input type="radio" id="html" name="fav_language" value="HTML">
-<label for="html">HTML</label><br>
-<input type="radio" id="css" name="fav_language" value="CSS">
-<label for="css">CSS</label><br>
-<input type="radio" id="javascript" name="fav_language" value="JavaScript">
-<label for="javascript" src="/media/imagem_passeio/buggy.png">JavaScript</label>
--->
+<h2>Lista de locais</h2>
+<h3>Praias</h3>
+{% for praia in praias %}
+<a href="{{praia.url}}" target="_blank">
+<img src="{{praia.img.url}}" alt="">
+</a>
+{% endfor %}
+<hr>
+<h3>naturezas</h3>
+{% for natureza in naturezas %}
+
+<img src="{{natureza.img.url}}" alt="">
+{% endfor %}
+<hr>
+<h3>gastronomias</h3>
+{% for gastronomia in gastronomias %}
+<img src="{{gastronomia.img.url}}" alt="">
+{% endfor %}
+<hr>
+<h3>culturaes</h3>
+{% for cultura in culturaes %}
+
+<img src="{{cultura.img.url}}" alt="">
+{% endfor %}
+<hr>
+<h3>Bares</h3>
+{% for bar in bares %}
+<span>{{bar.nome}}</span>
+<img src="{{bar.img.url}}" alt="">
+
+{% endfor %}-->
+
+
+<script src="{% static 'js/index.js' %}"></script>
 </body>
 </html>

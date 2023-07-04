@@ -1,0 +1,39 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/criar.css' %}">
+<a href="/">index</a>
+<form method="post">{% csrf_token %}
+    <label for="">Nome do seu roteiro:</label>
+        {{form.nome}}
+
+    <label for="">Defina a data para esse roteiro</label>
+        {{form.data}}
+
+    <h4 id="natureza">Opções de Natureza</h4>
+        {{form.natureza}}
+
+    <h4 id="gastronomia">Opções de gastronomia</h4>
+        {{form.gastronomia}}
+
+    <h4 id="praia">Opções de praias</h4>
+        {{form.praia}}
+        
+    <h4 id="cultura">Opções de Cultura</h4>
+        {{form.cultura}}
+    
+    
+    
+    
+    <input type="submit" value="Enviar">
+    
+    <input type="button" value="console" onclick="btn()">
+</form>
+<script src="{% static 'js/form.js' %}"></script>
+<script>
+    //var pacote = document.getElementById(id_gastronomia).style.visibility = "hidden";
+    
+    
+    var y = document.getElementById('id_data').type = "date"
+    console.log(y)
+    
+    
+</script>

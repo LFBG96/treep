@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+<body>
+    <a href="{% url 'treep:index' %}">Voltar para pagina principal</a>
+    <h1>Login</h1>
+
+    <form action="{% url 'treep:login' %}" method="post">
+        {% csrf_token %}
+        <label for="username">Username</label>
+        <input type="text" placeholder="Username..." name="username">
+        <br>
+        <label for="Senha">Senha</label>
+        <input type="password" placeholder="senha..." name="senha">
+        <br>
+        <input type="submit" value="entrar">
+    </form>
+<p>Não Possui login? </p> <a href="{% url 'treep:cadastro' %}">Cadastrar</a>
+ 
+</body>
+</html>

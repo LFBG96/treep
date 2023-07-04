@@ -1,0 +1,57 @@
+img{
+    height: 50px;
+    width: 64px;
+}
+
+.content{
+    border-color: #000000;
+    border-style: ridge;
+    border-radius: 10px;
+    background-color: rgb(0, 242, 255);
+    width: 520px;
+    height: 600px;
+    margin: 10px;
+    
+    
+}
+.card{
+    background-color: white;
+    padding: 0px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    width: 502px;
+    height: 100px;
+    display: flex;
+    border-style: ridge;
+    border-radius: 10px;
+    
+
+}
+
+
+.d1{
+    background-color:rgb(255, 255, 255);
+    width: 347px;
+    height: 100px;
+    margin-right: 77px;
+    
+}
+
+.d2{
+    float: right;
+    width: 70px;
+    height: 70px;
+    display: block;
+    background-color: #ffffff;
+}
+
+#t{
+    display: flex;
+    flex-wrap: wrap;
+    
+    
+    
+}
+.a{
+    float: right;
+}
